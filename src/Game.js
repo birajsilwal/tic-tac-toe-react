@@ -18,6 +18,11 @@ function Game() {
     setXIsNext(!xIsNext);
   }
 
+  function handleReset() {
+    setSquares(Array(9).fill(null));
+    setXIsNext(true);
+  }
+
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -33,6 +38,11 @@ function Game() {
       </div>
       <div className="game-info">
         <div>{status}</div>
+        {winner && (
+          <button className="reset-button" onClick={handleReset}>
+            Reset
+          </button>
+        )}
       </div>
     </div>
   );
