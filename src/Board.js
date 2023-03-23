@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Square from './Square';
 
-function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-
-  function handleClick(index) {
-    const newSquares = squares.slice();
-    newSquares[index] = 'X';
-    setSquares(newSquares);
-  }
-
-  function renderSquare(index) {
-    return (
-      <Square
-        value={squares[index]}
-        onClick={() => handleClick(index)}
-      />
-    );
-  }
+const Board = ({ squares, onClick }) => {
+  const renderSquare = (i) => {
+    return <Square value={squares[i]} onClick={() => onClick(i)} />;
+  };
 
   return (
     <div>
@@ -38,6 +25,6 @@ function Board() {
       </div>
     </div>
   );
-}
+};
 
 export default Board;
