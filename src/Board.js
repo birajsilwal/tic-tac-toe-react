@@ -1,13 +1,18 @@
 import React from 'react';
 import Square from './Square';
 
-const Board = ({ squares, onClick }) => {
+function Board(props) {
   const renderSquare = (i) => {
-    return <Square value={squares[i]} onClick={() => onClick(i)} />;
+    return (
+      <Square
+        value={props.squares[i]}
+        onClick={() => props.onClick(i)}
+      />
+    );
   };
 
   return (
-    <div>
+    <div style={{ margin: '0 auto', width: 'fit-content' }}>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
@@ -25,6 +30,6 @@ const Board = ({ squares, onClick }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Board;

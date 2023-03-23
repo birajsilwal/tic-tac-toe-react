@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Square(props) {
-  const squareStyle = {
+  const style = {
     fontSize: '24px',
     width: '48px',
     height: '48px',
@@ -14,11 +14,11 @@ function Square(props) {
     textAlign: 'center',
     lineHeight: '48px',
     outline: 'none',
-    cursor: 'pointer'
+    cursor: 'pointer',
   };
-
+  
   return (
-    <button style={squareStyle} className="square" onClick={props.onClick}>
+    <button className="square" style={style} onClick={props.onClick}>
       {props.value}
     </button>
   );
